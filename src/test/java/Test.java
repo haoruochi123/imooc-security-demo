@@ -1,11 +1,28 @@
-import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.apache.commons.io.FileUtils;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+import java.io.*;
+import java.util.List;
+
 public class Test {
-	
-	
+    public static void main(String[] args) throws IOException {
+
+        File file = new File("E:/test/test.txt");
+        InputStream inputStream = new FileInputStream(file);
+        File file1 = new File("E:/test/test1.txt");
+        OutputStream outputStream = new FileOutputStream(file1);
+//        byte[] bytes = new byte[1024];
+//        int l ;
+//        while ((l =inputStream.read(bytes))>0){
+//            outputStream.write(bytes,0,l);
+//        }
+//
+//        inputStream.close();
+//        outputStream.close();
+
+        List<String> strings = FileUtils.readLines(file, "UTF-8");
+        for (String a : strings) {
+            System.out.println(a);
+        }
+
+    }
 }
