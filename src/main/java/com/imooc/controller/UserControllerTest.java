@@ -52,10 +52,10 @@ public class UserControllerTest {
         System.out.println(pageable.getSort().toString());
     }
 
-    @GetMapping("/exception")
+    @PostMapping("/exception")
     public void exception(@Validated(value = {Inser.class}) @RequestBody  User user) {
 
-        throw new ControllerException("123");
+        throw new ControllerException("APP001","调用exception出错了");
     }
 
     @GetMapping("/exception1")
